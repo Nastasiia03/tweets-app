@@ -1,6 +1,7 @@
 
 import { createGlobalStyle } from "styled-components";
 import 'modern-normalize';
+import bgImage from '../images/purple-background.jpg';
 
 export const GlobalStyle = createGlobalStyle`
 body {
@@ -10,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(${bgImage});
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
