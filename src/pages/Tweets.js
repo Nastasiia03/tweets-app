@@ -13,45 +13,24 @@ const Tweets = () => {
   const isLoading = useSelector(selectIsLoading); 
   const error = useSelector(selectError);
   const [page, setPage] = useState(1);
-  const [cards, setCards] = useState([]);
-  const tweets = useSelector(selectUsers);
+  const users = useSelector(selectUsers);
   
 
-
   useEffect(() => {
-    dispatch(fetchUsers(page))
-      .then((response => {
-        if (page === 1) {
-          setCards(response.payload)
-        } else {
-          scrollLoadMore();
-          setCards(prevCards=> [...prevCards, ...response.payload])
-        }
-      }));
-    
-}, [dispatch, page]);
+      dispatch(fetchUsers(page));  
+}, []);
   
    
   const loadMore = () => {
-  setPage(prevPage => prevPage + 1)
+    setPage(prevPage => prevPage + 1);
+    dispatch(fetchUsers(page+1));
   };
   
-  const scrollLoadMore = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    });
-  };
-
   
-
- 
-  const showLoadMore = tweets.length >= 3;
-    
     return <Layout>
         {isLoading && !error && <b>Request in progress...</b>}
-      <UsersList users={cards} />
-      {showLoadMore && <LoadButton onLoad={loadMore} />}
+      <UsersList users={users} />
+       <LoadButton onLoad={loadMore} />
         </Layout>
 }
 

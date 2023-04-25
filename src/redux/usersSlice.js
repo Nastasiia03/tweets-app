@@ -7,6 +7,7 @@ const usersSlice = createSlice({
         items: [],
         isLoading: false,
         error: null,
+        pageSize: 0
     },
     extraReducers: builder => 
         builder
@@ -16,7 +17,8 @@ const usersSlice = createSlice({
             .addCase(fetchUsers.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.error = null;
-                state.items = action.payload;
+                state.items = [...state.items, ...action.payload];
+                
             })
             .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false;

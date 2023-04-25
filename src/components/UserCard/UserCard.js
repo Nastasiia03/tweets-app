@@ -6,8 +6,13 @@ import { updateUsers } from "redux/operations";
 
 
 
-export const UserCard = ({ user: { user, tweets, followers, avatar, id } }) => {
+
+export const UserCard = ({ user: { user, tweets, followers, avatar, id, following } }) => {
     const dispatch = useDispatch();
+    
+    const handleUpdate = () => {
+dispatch(updateUsers({id, followers, following}))
+    }
 
     return <Card>
         <Logo src={logo} />
@@ -18,6 +23,7 @@ export const UserCard = ({ user: { user, tweets, followers, avatar, id } }) => {
             <Text>{tweets} tweets</Text>
             <Text>{followers} followers</Text>
         </UserInfo>
-        <Button type="submit" onClick={() => dispatch(updateUsers({id, followers}))}>follow</Button>
+        {!following ? <Button type="submit" onClick={handleUpdate}>follow</Button>
+        : <Button type="submit" onClick={handleUpdate} style={{ backgroundColor: "#5CD3A8" }}>following</Button>}
     </Card>; 
 }
