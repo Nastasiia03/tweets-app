@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { AppBar } from './Navigation.styled';
+import { AppBar, LinkName } from './Navigation.styled';
 
 export const AppNav = () => {
     return <AppBar>
-        <Link to="/">Home</Link>
-        <Link to="/tweets">Tweets</Link>
+        <Link to="/" style={{ textDecoration: "none" }}><LinkName>Home</LinkName></Link>
+        <Link to="/tweets" style={{ textDecoration: "none" }}><LinkName>Tweets</LinkName></Link>
     </AppBar>
 }
