@@ -17,13 +17,15 @@ const Tweets = () => {
   
 
   useEffect(() => {
-      dispatch(fetchUsers(page));  
-}, [dispatch, page]);
+    if (users.length === 0) {
+      dispatch(fetchUsers(page));
+  }  
+}, [dispatch, page, users.length]);
   
    
   const loadMore = () => {
     setPage(prevPage => prevPage + 1);
-    // dispatch(fetchUsers(page+1));
+    dispatch(fetchUsers(page+1));
   };
   
   
