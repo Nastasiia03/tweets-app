@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-padding-top: 270px;
+padding-top: 250px;
 `
 
 export const MainTitle = styled.h1`
