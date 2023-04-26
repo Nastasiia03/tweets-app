@@ -24,7 +24,6 @@ export const updateUsers = createAsyncThunk(
         followers: user.following ? user.followers - 1 : user.followers+1,
         following: !user.following
       });
-      console.log(response.data)
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

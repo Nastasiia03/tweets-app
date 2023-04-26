@@ -17,7 +17,6 @@ const usersSlice = createSlice({
                 state.isLoading = false;
                 state.error = null;
                 state.items = [...state.items, ...action.payload]; 
-                console.log(state.items)
             })
             .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false;

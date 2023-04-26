@@ -10,6 +10,7 @@ import { LoadButton } from "components/LoadButton/LoadButton";
 import { StatusFilter } from "components/StatusFilter/StatusFilter";
 import { GoBackButton } from "components/GoBackButton/GoBackButton";
 import { Loader } from "components/Loader/Loader";
+import { selectStatusFilter } from "redux/selectors";
 
 const Tweets = () => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const Tweets = () => {
   const error = useSelector(selectError);
   const [page, setPage] = useState(1);
   const users = useSelector(selectUsers);
-  
+  const filter = useSelector(selectStatusFilter);
 
   useEffect(() => {
     if (users.length === 0) {
@@ -31,7 +32,7 @@ const Tweets = () => {
     dispatch(fetchUsers(page+1));
   };
   
-  const showLoadMore = users.length > 0 && users.length < 15;
+  const showLoadMore = users.length > 0 && users.length < 15 && filter === "All";
   
     return <Layout>
       {isLoading && !error && <Loader/>}
