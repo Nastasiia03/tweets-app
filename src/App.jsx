@@ -1,10 +1,10 @@
-import { GlobalStyle } from "./GlobalStyles";
+import { GlobalStyle } from "./components/GlobalStyles";
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { AppNav } from "./Navigation/Navigation";
+import { AppNav } from "./components/Navigation/Navigation";
 
-const HomePage = lazy(() => import("../pages/Home"));
-const TweetsPage = lazy(() => import("../pages/Tweets"));
+const HomePage = lazy(() => import("./pages/Home"));
+const TweetsPage = lazy(() => import("./pages/Tweets"));
 
 export const App = () => {
   return <Suspense fallback={<b>Loading...</b>}>

@@ -1,5 +1,4 @@
-import { Avatar, Button, Card, Circle, Image, Line, Logo, Text, UserInfo } from "./UserCard.styled";
-import img from "./bgpicture.png";
+import { Avatar, Button, Card, Circle, Line, Logo, Text, UserInfo } from "./UserCard.styled";
 import logo from './Logo.png';
 import { useDispatch } from "react-redux";
 import { updateUsers } from "redux/operations";
@@ -16,7 +15,6 @@ export const UserCard = ({ user: { user, tweets, followers, avatar, id, followin
     
     return <Card>
         <Logo src={logo} alt="GOIT logo" />
-        <Image src={img} alt="Computer" />
         <Circle><Avatar src={avatar} alt={user} /></Circle>
         <Line />
         <UserInfo>

@@ -1,23 +1,17 @@
 import styled from "styled-components";
+import img from "./bgpicture.png";
 
-
-export const Card = styled.div`
+export const Card = styled.li`
 position: relative;
 width: 380px;
 height: 460px;
-background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
+background: #5736A3;
 box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
 border-radius: 20px;
 padding-top: 284px;
-
-`
-
-export const Image = styled.img`
-position: absolute;
-width: 308px;
-height: 168px;
-left: 36px;
-top: 28px;
+background-image: url(${img});
+background-repeat: no-repeat;
+background-position: 36px 28px;
 `
 
 export const Logo = styled.img`
@@ -98,5 +92,10 @@ display: block;
 margin-right: auto;
 margin-left: auto;
 cursor: pointer;
+transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), font-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
+&:hover, &:focus {
+    box-shadow: #919191 0px 3px 12px;
+    font-size: 18.5px;
+}
 `;
 
